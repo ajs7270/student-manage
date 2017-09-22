@@ -1,0 +1,7 @@
+
+class fileIO{
+public:
+	fileIO();
+
+
+};
