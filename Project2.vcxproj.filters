@@ -15,21 +15,24 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="file1.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileIO.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="manage.h">
+    <ClInclude Include="FileIO.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="fileIO.h">
+    <ClInclude Include="Manage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="file1.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
   </ItemGroup>
 </Project>

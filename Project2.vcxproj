@@ -64,14 +64,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="file1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="fileIO.h" />
-    <ClInclude Include="manage.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="file1.txt" />
+    <ClInclude Include="FileIO.h" />
+    <ClInclude Include="Manage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
