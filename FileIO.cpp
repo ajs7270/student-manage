@@ -1,13 +1,14 @@
 #include "FileIO.h"
 
+FileIO* FileIO::instance = NULL;
+
 FileIO::FileIO(fstream* myfile){
-
+	this->myfile = myfile;
 }
 
-int FileIO::insertion(){
+void FileIO::writeFIle(){
 
 }
-
-int FileIO::searchID(){
+void FileIO::readFile(){
 
 }

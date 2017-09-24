@@ -4,10 +4,12 @@
 
 #include <fstream>
 
+using namespace std;
+
 class FileIO{
 private:
 	static FileIO* instance;
-	fstream * myfile;
+	fstream* myfile;
 	FileIO(){};
 	FileIO(fstream* myfile);
 	~FileIO(){};
@@ -15,14 +17,14 @@ private:
 public:
 	static FileIO* GetInstance(fstream* myfile){
 		if (NULL == instance){
-			instance = new FileIO(fstream* myfile);
+			instance = new FileIO(myfile);
 		}
 		return instance;
 	}
-	int insertion(); //insertion student to file1.txt
-	int searchID();
-	int searchName();
-	int searchAge();
-	int deletion(); //deletion student by studentID
-};
+	FileIO* GetInstance(){
+		return instance;
+	}
+	void readFile();
+	void writeFIle();
+	};
 #endif
