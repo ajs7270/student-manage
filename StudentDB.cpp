@@ -170,3 +170,5 @@ string StudentDB::getStudentLine(int index){
 		+ '/' + DB[index].getTel();
 	return line;
 }
+
+int StudentDB::getDBSize(){ return DB.size(); }

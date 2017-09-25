@@ -9,22 +9,22 @@ class FileIO;
 
 class StudentDB {
 private:
-	static StudentDB* instance; // singleton pattern
 	vector<Student> DB;
 	FileIO *file;
+
+	static StudentDB* instance; // singleton pattern
 	bool checkID(string ID); // id compare and 
 
 	StudentDB(FileIO* file); // constructor use singleton pattern
-	~StudentDB(){};
-	
+	~StudentDB(){}; //destructor
 
 public:
 	static StudentDB* Getinstance(FileIO* file); // singleton pattern
 
-	void insertion();
-	void deletion(string ID);
-	void clearDB();
-	void setDB(string student[5]);
+	void insertion(); // insertion student
+	void deletion(string ID); // delete student by ID
+	void clearDB(); // reset DB
+	void setDB(string student[5]); //add Student to DB
 
 	vector<int> searchID(string ID);// return equal ID indexµé
 	vector<int> searchName(string name);// return equal Name indexµé
@@ -34,6 +34,6 @@ public:
 	void printStudent(vector<int> index); // input index and print that
 	void printAllStudent(); // print all student
 
-	string	getStudentLine(int index);
-	int		getDBSize(){ return DB.size(); }
+	string	getStudentLine(int index); // get one student information
+	int		getDBSize(); // get How many student information
 };

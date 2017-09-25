@@ -12,7 +12,7 @@ private:
 	static FileIO* instance;
 	string fileName;
 	
-	FileIO(){};
+	FileIO(){}; //singleton pattern
 	FileIO(string fileName); // constructor use singleton pattern
 	~FileIO(){};
 
@@ -20,6 +20,6 @@ public:
 	static FileIO* GetInstance(string fileName); // singleton pattern
 	FileIO* GetInstance(); // singleton pattern
 
-	void readFile(StudentDB* DB);
-	void writeFIle(StudentDB* DB);	
+	void readFile(StudentDB* DB); // read file to initalize DB
+	void writeFIle(StudentDB* DB); // write file using DB
 };
