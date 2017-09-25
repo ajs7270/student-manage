@@ -1,9 +1,9 @@
-#ifndef _FILEIO_H_
-#define _FILEIO_H_
-#define NULL 0
+#pragma once
 
+#include <cstdio>
 #include <fstream>
-#include "StudentDB.h"
+
+class StudentDB;
 
 using namespace std;
 
@@ -11,21 +11,15 @@ class FileIO{
 private:
 	static FileIO* instance;
 	string fileName;
+	
 	FileIO(){};
-	FileIO(string fileName);
+	FileIO(string fileName); // constructor use singleton pattern
 	~FileIO(){};
 
 public:
-	static FileIO* GetInstance(string fileName){
-		if (NULL == instance){
-			instance = new FileIO(fileName);
-		}
-		return instance;
-	}
-	FileIO* GetInstance(){
-		return instance;
-	}
+	static FileIO* GetInstance(string fileName); // singleton pattern
+	FileIO* GetInstance(); // singleton pattern
+
 	void readFile(StudentDB* DB);
 	void writeFIle(StudentDB* DB);	
 };
-#endif

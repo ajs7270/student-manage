@@ -29,12 +29,12 @@
     <ClCompile Include="StudentDB.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Manage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="StudentDB.h">

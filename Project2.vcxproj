@@ -69,11 +69,11 @@
   <ItemGroup>
     <ClCompile Include="FileIO.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentDB.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h" />
-    <ClInclude Include="Manage.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentDB.h" />
   </ItemGroup>

@@ -1,7 +1,10 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <iostream>
-#include "Manage.h"
+
+#include "FileIO.h"
+#include "StudentDB.h"
+#include "Student.h"
 
 using namespace std;
 
@@ -24,10 +27,28 @@ int main(int argc, char *argv[]){
 	return 0;
 }
 
-bool menu(FileIO* file, StudentDB* db){
+enum SELECT_MENU{
+	INSERTION = 1,
+	SEARCH,
+	DELETION,
+	EXIT
+};
 
+enum SEARCH_OPTION{
+	SEARCH_BY_NAME = 1,
+	SEARCH_BY_ID,
+	SEARCH_BY_DEPARTMENT,
+	SEARCH_BY_AGE,
+	LIST_ALL
+};
+
+bool menu(FileIO* file, StudentDB* DB){
+	
 	int select;
-	int search;
+	int searchNum;
+	string searchString;
+	vector<int> index;
+
 	cout << "1. Insertion" << endl;
 	cout << "2. Search" << endl;
 	cout << "3. Deletion" << endl;
@@ -35,51 +56,75 @@ bool menu(FileIO* file, StudentDB* db){
 	cout << ">> ";
 	cin >> select;
 
-	if (select == 1){
+	switch (select)
+	{
+	case INSERTION:
 		//insertion
-		db->insertion();
-	}
-	else if (select == 2){
+		DB->insertion();
+		break;
+	case SEARCH:
 		//search 
-		cout << "1. Search by name" << endl;
-		cout << "2. search by student ID" << endl;
-		cout << "3. search by department name" << endl;
-		cout << "4. search by Age" << endl;
-		cout << "5. List All" << endl;
+		cout << SEARCH_BY_NAME << ". Search by name" << endl;
+		cout << SEARCH_BY_ID << ". search by student ID" << endl;
+		cout << SEARCH_BY_DEPARTMENT << ". search by department name" << endl;
+		cout << SEARCH_BY_AGE << ". search by Age" << endl;
+		cout << LIST_ALL << ". List All" << endl;
 		cout << ">> ";
-		cin >> search;
+		cin >> searchNum;
 
-		switch (search)
+		switch (searchNum)
 		{
-		case 1:
-			
+		case SEARCH_BY_NAME:
+			cout << ">> ";
+			cin >> searchString;
+			index = DB->searchName(searchString);
+			cout << endl;
+			DB->printStudent(index);
+			cout << endl;
 			break;
-		case 2:
-			
+		case SEARCH_BY_ID:
+			cout << ">> ";
+			cin >> searchString;
+			index = DB->searchID(searchString);
+			cout << endl;
+			DB->printStudent(index);
+			cout << endl;
 			break;
-		case 3:
-			
+		case SEARCH_BY_DEPARTMENT:
+			cout << ">> ";
+			cin >> searchString;
+			index = DB->searchDept(searchString);
+			cout << endl;
+			DB->printStudent(index);
+			cout << endl;
 			break;
-		case 4:
-			
+		case SEARCH_BY_AGE:
+			cout << ">> ";
+			cin >> searchString;
+			index = DB->searchAge(searchString);
+			cout << endl;
+			DB->printStudent(index);
+			cout << endl;
 			break;
-		case 5:
-
+		case LIST_ALL:
+			cout << endl;
+			DB->printAllStudent();
+			cout << endl;
 			break;
 		default:
 			cout << "select mistake!" << endl;
 			break;
 		}
-	}
-	else if (select == 3){
-		//deletion
-	}
-	else if (select == 4){
-		//exit
+		break;
+	case DELETION:
+		cout << ">>";
+		cin >> searchString;
+		DB->deletion(searchString);
+		break;
+	case EXIT:
 		return false;
-	}
-	else{
-
+	default:
+		break;
 	}
 	return true;
 }
