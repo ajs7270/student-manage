@@ -3,28 +3,29 @@
 #define NULL 0
 
 #include <fstream>
+#include "StudentDB.h"
 
 using namespace std;
 
 class FileIO{
 private:
 	static FileIO* instance;
-	fstream* myfile;
+	string fileName;
 	FileIO(){};
-	FileIO(fstream* myfile);
+	FileIO(string fileName);
 	~FileIO(){};
 
 public:
-	static FileIO* GetInstance(fstream* myfile){
+	static FileIO* GetInstance(string fileName){
 		if (NULL == instance){
-			instance = new FileIO(myfile);
+			instance = new FileIO(fileName);
 		}
 		return instance;
 	}
 	FileIO* GetInstance(){
 		return instance;
 	}
-	void readFile();
-	void writeFIle();
-	};
+	void readFile(StudentDB* DB);
+	void writeFIle(StudentDB* DB);	
+};
 #endif

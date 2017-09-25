@@ -21,7 +21,9 @@ void StudentDB::insertion(){
 	}else{
 		DB.push_back(student);
 	}
-	file->writeFIle();
+	//DB sort
+
+	file->writeFIle(this);
 }
 
 void StudentDB::deletion(string ID){
@@ -33,9 +35,16 @@ void StudentDB::deletion(string ID){
 		}
 	}
 
-	file->writeFIle();
+	file->writeFIle(this);
 }
 
+void StudentDB::clearDB(){
+	DB.clear();
+}
+
+void StudentDB::setDB(string student[5]){
+	DB.push_back(student);
+}
 
 vector<int> StudentDB::searchID(string ID){
 	vector<int> index;
@@ -100,4 +109,9 @@ bool StudentDB::checkID(string ID){
 		}
 	}
 	return false;
+}
+
+string StudentDB::getStudentLine(int index){
+	string line = DB[index].name + '/' + DB[index].studentID + '/' + DB[index].age + '/' + DB[index].dept + '/' + DB[index].tel;
+	return line;
 }
