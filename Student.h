@@ -17,7 +17,7 @@ public:
 	string getAge() const;
 	string getTel() const;
 
-	bool operator<(const Student& std) const ;
+	bool operator<(const Student& std) const ; // Operator Overloading for sort
 
 private:
 	string name;

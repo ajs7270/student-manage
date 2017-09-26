@@ -8,7 +8,7 @@
 
 using namespace std;
 
-bool menu(FileIO*, StudentDB*);
+bool menu(FileIO*, StudentDB*); // print menu
 
 int main(int argc, char *argv[]){
 
@@ -47,7 +47,7 @@ bool menu(FileIO* file, StudentDB* DB){
 	int select;
 	int searchNum;
 	string searchString;
-	vector<int> index;
+	vector<int> index; // save student index
 
 	cout << "1. Insertion" << endl;
 	cout << "2. Search" << endl;
@@ -117,7 +117,8 @@ bool menu(FileIO* file, StudentDB* DB){
 		}
 		break;
 	case DELETION:
-		cout << ">>";
+		cout << "Input Student ID" << endl;
+		cout << ">> ";
 		cin >> searchString;
 		DB->deletion(searchString);
 		break;

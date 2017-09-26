@@ -20,7 +20,7 @@ StudentDB* StudentDB::Getinstance(FileIO* file){
 }
 
 
-void StudentDB::insertion(){ //insertion student
+void StudentDB::insertion(){
 	string student[5];
 	cout << "Name ? ";
 	cin >> student[0];
@@ -33,11 +33,11 @@ void StudentDB::insertion(){ //insertion student
 	cout << "Tel ? ";
 	cin >> student[4];
 	if (checkID(student[1])){
-		cout << "Error : Already inserted";
+		cout << "ID Error";
 	}else{
 		DB.push_back(student);
 	}
-	//DB sort
+	
 	sort(DB.begin(), DB.end());
 
 	file->writeFIle(this);

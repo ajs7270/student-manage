@@ -7,8 +7,8 @@ Student::Student(string student[5])
 	, age(student[3])
 	, tel(student[4]){}
 
-bool Student::operator<(const Student &std) const {
-	if (this->getName() < std.getName()){
+bool Student::operator<(const Student &std) const { 
+	if (this->getName() < std.getName()){ // sort by dictionary
 		return true;
 	}
 	return false;

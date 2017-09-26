@@ -9,7 +9,7 @@ class FileIO;
 
 class StudentDB {
 private:
-	vector<Student> DB;
+	vector<Student> DB; // Student Database
 	FileIO *file;
 
 	static StudentDB* instance; // singleton pattern
